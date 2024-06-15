@@ -5,3 +5,35 @@
 body{
     background-color: #222;
 }
+
+.inner-shadow{
+    box-shadow: inset #2563eb 1px 1px 10px;
+}
+
+.top-shadow{
+    box-shadow: #2563eb 1px -4px 6px;
+}
+
+.border-sky-300{
+    border: solid #7dd3fc 4px;
+}
+
+.border-green-500{
+    border: solid #22c55e 4px;
+}
+
+.border-yellow-500{
+    border: solid #eab308 4px;
+}
+
+.bg-sky-300{
+    background-color: #7dd3fc;
+}
+
+.bg-green-500{
+    background-color: #22c55e;
+}
+
+.bg-yellow-500{
+    background-color: #eab308;
+}

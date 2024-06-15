@@ -2,6 +2,7 @@ import * as React from 'react';
 import Navbar from './components/Navbar.jsx';
 import Banner from './components/Banner.jsx';
 import CardSection from './components/CardSection.jsx';
+import Footer from './components/Footer.jsx';
 
 import front_1 from './assets/front_1.png';
 import front_2 from './assets/front_2.png';
@@ -30,18 +31,18 @@ function App() {
       title: 'BACK END',
       color: 'green-500',
       cards: [
-        { title: 'Variables en JS', image: back_1 },
-        { title: 'JavaScript', image: back_2 },
-        { title: 'Equipo Front End', image: back_3 }
+        { title: 'Spring Framework', image: back_1 },
+        { title: 'SQL vs NoSQL', image: back_2 },
+        { title: 'Java Enum', image: back_3 }
       ]
     },
     {
       title: 'INNOVACIÓN Y GESTIÓN',
       color: 'yellow-500',
       cards: [
-        { title: 'Variables en JS', image: soft_1 },
-        { title: 'JavaScript', image: soft_2 },
-        { title: 'Equipo Front End', image: soft_3 }
+        { title: 'Que son las Soft Skills', image: soft_1 },
+        { title: '7 Soft Skills mas deseadas', image: soft_2 },
+        { title: 'Metodologías Ágiles', image: soft_3 }
       ]
     }
   ];
@@ -51,6 +52,7 @@ function App() {
       <Navbar />
       <Banner />
       { cardsSections.map((cardSection) => <CardSection cardSection={cardSection} key={cardSection.title} />) }
+      <Footer />
     </>
   )
 }

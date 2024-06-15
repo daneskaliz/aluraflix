@@ -1,7 +1,6 @@
 import * as React from 'react';
 import logo from '../assets/logo.png';
 import plusIcon from "../assets/plus.svg";
-import './navbar.css'
 
 export default function Navbar() {
   return (
