@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx';
 import Banner from './components/Banner.jsx';
 import CardSection from './components/CardSection.jsx';
 import Footer from './components/Footer.jsx';
+import CardForm from './components/CardForm.jsx';
 
 import front_1 from './assets/front_1.png';
 import front_2 from './assets/front_2.png';
@@ -51,6 +52,7 @@ function App() {
     <>
       <Navbar />
       <Banner />
+      <CardForm />
       { cardsSections.map((cardSection) => <CardSection cardSection={cardSection} key={cardSection.title} />) }
       <Footer />
     </>
