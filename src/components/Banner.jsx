@@ -4,9 +4,9 @@ import bannerCard from '../assets/banner_player.png'
 
 export default function Banner() {
   return (
-    <section className='w-full h-96 mt-1 relative mb-96'>
+    <section className='hidden md:flex w-full mt-1 relative'>
       <img className='opacity-50' src={bannerBG} alt="A man using a laptop" />
-      <div className='flex items-center absolute top-48'>
+      <div className='flex items-center absolute top-20 lg:top-48'>
         <div className='ml-4 w-1/2'>
           <div className='bg-sky-300 rounded-md p-2 w-36 text-center'>
             <h3 className='font-bold text-xl text-white'>FRONT END</h3>
@@ -18,7 +18,7 @@ export default function Banner() {
             los conocimientos adquiridos en la formación React.
           </p>
         </div>
-        <div className='w-1/3 pt-24'>
+        <div className='w-1/3 pt-12 lg:pt-24'>
           <img src={bannerCard} alt="A man and a text about programming" />
         </div>
       </div>

@@ -7,14 +7,14 @@ export default function CardSection(props) {
 
     return (
         <section className="my-14 px-4">
-            <div className={'rounded-md p-2 w-1/4 text-center ' + backgroundClass}>
+            <div className={'rounded-md p-2 w-5/6 md:w-1/2 lg:w-2/6 text-center flex justify-center md:mx-auto lg:ml-0 ' + backgroundClass}>
                 <h4 className='font-bold text-xl text-white'>
                     {props.cardSection.title}
                 </h4>
             </div>
-            <div className="flex items-center justify-between">
-                { props.cardSection.cards.map(card => 
-                    <div key={card.title} className="mt-4 w-1/4">
+            <div className="flex items-center justify-between gap-2">
+                { props.cardSection.cards.map(card =>
+                    <div key={card.title} className="mt-4 w-11/12 md:w-2/5 lg:w-1/4">
                         <img src={card.image} alt={card.title} />
                         <div className={'flex items-center bg-stone-800 rounded-md border-4 -mt-2 ' + borderClass}>
                             <button type="button" className="opacity-5 hover:opacity-95 transition-opacity flex items-center gap-2 justify-center py-2 text-sm text-white w-1/2">

@@ -3,12 +3,12 @@ export default function CardForm() {
 
     return (
     <div id="myModal" className="hidden fixed left-0 top-0 z-10 w-full h-full bg-black bg-opacity-45">
-        <div className="relative mt-20 mx-auto h-4/5 w-3/5 p-10 border-2 border-blue-300 bg-blue-950 rounded-md">   
+        <div className="relative mt-24 mx-auto h-[550px] w-11/12 lg:w-3/5 md:w-4/5 p-10 border-2 border-blue-300 bg-blue-950 rounded-md">   
             <button type="button" className="close top-5 right-10 absolute text-2xl text-blue-500 hover:text-blue-300 font-bold">
                 x
             </button>
             <h3 className="text-3xl text-blue-300 font-bold mb-2 text-center">EDITAR CARD</h3>
-            <form className="flex flex-col w-2/3 mt-8 mx-auto">
+            <form className="flex flex-col sm:w-5/6 lg:w-2/3 mt-8 mx-auto">
                 <label className="text-white text-sm font-bold" htmlFor="titulo">Título</label>
                 <input className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1" type="text" name="titulo" />
                 <label className="text-white text-sm font-bold" htmlFor="categoria">Categoria</label>
