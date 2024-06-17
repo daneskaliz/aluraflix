@@ -12,9 +12,9 @@ export default function CardSection(props) {
                     {props.cardSection.title}
                 </h4>
             </div>
-            <div className="flex items-center justify-between gap-2">
+            <div className="grid md:flex items-center justify-between gap-2">
                 { props.cardSection.cards.map(card =>
-                    <div key={card.title} className="mt-4 w-11/12 md:w-2/5 lg:w-1/4">
+                    <div key={card.title} className="mt-4 w-11/12 md:w-2/6 lg:w-1/4">
                         <img src={card.image} alt={card.title} />
                         <div className={'flex items-center bg-stone-800 rounded-md border-4 -mt-2 ' + borderClass}>
                             <button type="button" className="opacity-5 hover:opacity-95 transition-opacity flex items-center gap-2 justify-center py-2 text-sm text-white w-1/2">
