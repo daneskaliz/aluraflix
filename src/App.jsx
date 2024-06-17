@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Banner from './components/Banner.jsx';
 import CardSection from './components/CardSection.jsx';
@@ -17,7 +18,9 @@ import soft_3 from './assets/soft_3.png';
 
 
 function App() {
-
+  const [formOpen, setFormOpen] = useState(false);
+  const openForm = () => setFormOpen(true);
+  const closeForm = () => setFormOpen(false);
   const cardsSections = [
     {
       title: 'FRONT END',
@@ -50,9 +53,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar openForm={openForm} closeForm={closeForm} />
       <Banner />
-      <CardForm />
+      {formOpen == true ? <CardForm closeForm={closeForm} /> : ''}
       { cardsSections.map((cardSection) => <CardSection cardSection={cardSection} key={cardSection.title} />) }
       <Footer />
     </>

@@ -1,10 +1,13 @@
 
-export default function CardForm() {
+export default function CardForm(props) {
 
     return (
-    <div id="myModal" className="hidden fixed left-0 top-0 z-10 w-full h-full bg-black bg-opacity-45">
+    <div id="myModal" className="fixed left-0 top-0 z-10 w-full h-full bg-black bg-opacity-45">
         <div className="relative mt-24 mx-auto h-[550px] w-11/12 lg:w-3/5 md:w-4/5 p-10 border-2 border-blue-300 bg-blue-950 rounded-md">   
-            <button type="button" className="close top-5 right-10 absolute text-2xl text-blue-500 hover:text-blue-300 font-bold">
+            <button
+            type="button"
+            className="close top-5 right-10 absolute text-2xl text-blue-500 hover:text-blue-300 font-bold"
+            onClick={() => props.closeForm()}>
                 x
             </button>
             <h3 className="text-3xl text-blue-300 font-bold mb-2 text-center">EDITAR CARD</h3>
@@ -23,7 +26,9 @@ export default function CardForm() {
                     <button type="submit" className="inner-shadow rounded-md text-white border border-blue-500 px-3 py-1 w-32 hover:scale-105 transition-transform">
                         Guardar
                     </button>
-                    <button type="button" className="rounded-md text-white border px-3 py-1 w-32 hover:scale-105 transition-transform">
+                    <button
+                    type="button" className="rounded-md text-white border px-3 py-1 w-32 hover:scale-105 transition-transform"
+                    onClick={() => props.closeForm()}>
                         Cancelar
                     </button>
                 </div>
