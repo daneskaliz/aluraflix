@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Banner from './components/Banner.jsx';
-import CardSection from './components/CardSection.jsx';
+import Category from './components/Category.jsx';
 import Footer from './components/Footer.jsx';
 import CardForm from './components/CardForm.jsx';
 
@@ -16,47 +16,42 @@ import soft_1 from './assets/soft_1.png';
 import soft_2 from './assets/soft_2.png';
 import soft_3 from './assets/soft_3.png';
 
-
 function App() {
   const [formOpen, setFormOpen] = useState(false);
+  const [formData, setFormData] = useState({ title: '', imageURL: '', description: '', videoURL: '', category: '' });
   const openForm = () => setFormOpen(true);
   const closeForm = () => setFormOpen(false);
-  const cardsSections = [
-    {
-      title: 'FRONT END',
-      color: 'sky-300',
-      cards: [
-        { title: 'Variables en JS', image: front_1 },
-        { title: 'JavaScript', image: front_2 },
-        { title: 'Equipo Front End', image: front_3 }
-      ]
-    },
-    {
-      title: 'BACK END',
-      color: 'green-500',
-      cards: [
-        { title: 'Spring Framework', image: back_1 },
-        { title: 'SQL vs NoSQL', image: back_2 },
-        { title: 'Java Enum', image: back_3 }
-      ]
-    },
-    {
-      title: 'INNOVACIÓN Y GESTIÓN',
-      color: 'yellow-500',
-      cards: [
-        { title: 'Que son las Soft Skills', image: soft_1 },
-        { title: '7 Soft Skills mas deseadas', image: soft_2 },
-        { title: 'Metodologías Ágiles', image: soft_3 }
-      ]
-    }
+  const cards = [
+    { title: 'Variables en JS', imageURL: front_1, description: '', videoURL: '', category: 'Front End' },
+    { title: 'JavaScript', imageURL: front_2, description: '', videoURL: '', category: 'Front End' },
+    { title: 'Equipo Front End', imageURL: front_3, description: '', videoURL: '', category: 'Front End' },
+    { title: 'Spring Framework', imageURL: back_1, description: '', videoURL: '', category: 'Back End' },
+    { title: 'SQL vs NoSQL', imageURL: back_2, description: '', videoURL: '', category: 'Back End' },
+    { title: 'Java Enum', imageURL: back_3, description: '', videoURL: '', category: 'Back End' },
+    { title: 'Que son las Soft Skills', imageURL: soft_1, description: '', videoURL: '', category: 'Innovación y Gestión' },
+    { title: '7 Soft Skills mas deseadas', imageURL: soft_2, description: '', videoURL: '', category: 'Innovación y Gestión' },
+    { title: 'Metodologías Ágiles', imageURL: soft_3, description: '', videoURL: '', category: 'Innovación y Gestión' },
   ];
+  
+  const categories = [
+    { title: 'Front End', color: 'sky-300', cards: [] },
+    { title: 'Back End', color: 'green-500', cards: [] },
+    { title: 'Innovación y Gestión', color: 'yellow-500', cards: [] },
+  ];
+
+  (function pushCardsIntoCategories() {
+    cards.forEach(card => {
+      const categoryIndex = categories.findIndex(category => category.title == card.category);
+      categories[categoryIndex].cards.push(card);
+    });
+  }())
 
   return (
     <>
       <Navbar openForm={openForm} closeForm={closeForm} />
       <Banner />
-      {formOpen == true ? <CardForm closeForm={closeForm} /> : ''}
-      { cardsSections.map((cardSection) => <CardSection cardSection={cardSection} key={cardSection.title} />) }
+      {formOpen == true ? <CardForm closeForm={closeForm} formData={formData} categories={categories} /> : ''}
+      { categories.map((category) => <Category category={category} key={category.title} />) }
       <Footer />
     </>
   )
