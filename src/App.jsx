@@ -7,8 +7,6 @@ import Footer from './components/Footer.jsx';
 import CardForm from './components/CardForm.jsx';
 import * as placeHolders from '../db.json';
 
-console.log(placeHolders);
-
 function App() {
   const [formOpen, setFormOpen] = useState(false);
   const [formData, setFormData] = useState({ title: '', imageURL: '', description: '', videoURL: '', category: 'Front End' });
