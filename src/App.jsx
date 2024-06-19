@@ -24,6 +24,7 @@ function App() {
   const clearForm = () => setFormData({ title: '', imageURL: '', description: '', videoURL: '', category: 'Front End' });
   const closeForm = () => {
     clearForm();
+    setselectedCardIndex(null);
     setFormOpen(false);
   };
   const [cards, setCards] = useState([
@@ -46,16 +47,28 @@ function App() {
 
   function updateCategories() {
     const categoriesUpdated = categories.map(category => {
-      return { ...category, cards: cards.filter(card => card.category == category.title) };
-    });
-    setCategories(categoriesUpdated);
+      return {
+        ...category,
+        cards: cards.filter(card => card.category == category.title),
+      } });
+      setCategories(categoriesUpdated);
   }
 
-  function updateCard(formUpdates) {
+  function updateCard(cardUpdates) {
     const currentCards = [...cards];
-    currentCards[selectedCardIndex] = formUpdates;
+    currentCards[selectedCardIndex] = cardUpdates;
     setCards(currentCards);
     closeForm();
+    alert("Los cambios fueron guardados.")
+  }
+
+  function createCard(cardData) {
+    const currentCards = [...cards];
+    currentCards.push(cardData);
+    console.log(cardData);
+    setCards([...currentCards]);
+    closeForm();
+    alert("El video fue agregado.")
   }
 
   function selectCardForEdition(title) {
@@ -63,6 +76,15 @@ function App() {
     setselectedCardIndex(cardIndex);
     setFormData(cards[cardIndex]);
     openForm();
+  }
+
+  function selectCardForDeletion(title) {
+    const deletionConfirmed = confirm("El video se borrará permanentemente si aceptas.");
+    if (!deletionConfirmed) return;
+    const cardIndex = cards.findIndex(card => card.title == title);
+    const currentCards = [...cards];
+    currentCards.splice(cardIndex, 1);
+    setCards(currentCards);
   }
 
   useEffect(() => updateCategories(), [cards])
@@ -78,6 +100,7 @@ function App() {
       categories={categories}
       selectedCardIndex={selectedCardIndex}
       updateCard={updateCard}
+      createCard={createCard}
       cards={cards}
       /> : ''}
 
@@ -86,6 +109,7 @@ function App() {
         key={category.title}
         category={category}
         selectCardForEdition={selectCardForEdition}
+        selectCardForDeletion={selectCardForDeletion}
       />)
       ) }
       <Footer />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 export default function CardForm(props) {
     const [title, setTitle] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('Front End');
     const [imageURL, setImageURL] = useState('');
     const [videoURL, setVideoURL] = useState('');
     const [description, setDescription] = useState('');
@@ -18,10 +18,10 @@ export default function CardForm(props) {
     const categoryNames = props.categories.map(category => category.title);
     const onSubmit = (event) => {
         event.preventDefault();
-        if (props.selectedCardIndex !== null) props.updateCard({ title, category, imageURL, videoURL, description });
-        else props.createCard()
+        const formData = { title, category, imageURL, videoURL, description };
+        if (props.selectedCardIndex !== null) props.updateCard(formData);
+        else props.createCard(formData);
     }
-
 
     return (
     <div id="myModal" className="fixed left-0 top-0 z-10 w-full h-full bg-black bg-opacity-45">
@@ -37,6 +37,7 @@ export default function CardForm(props) {
                 <label className="text-white text-sm font-bold" htmlFor="title">Título</label>
                 <input
                 className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1"
+                required
                 type="text"
                 name="title"
                 value={title}
@@ -45,15 +46,17 @@ export default function CardForm(props) {
                 <label className="text-white text-sm font-bold" htmlFor="category">Categoria</label>
                 <select
                 className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1"
+                required
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 >
-                    { categoryNames.map((categoryName) => <option key={categoryName} className="bg-blue-900 text-white">{categoryName}</option>)}
+                    { categoryNames.map((categoryName) => <option key={categoryName} className="bg-blue-900 text-white" value={categoryName}>{categoryName}</option>)}
                 </select>
                 <label className="text-white text-sm font-bold" htmlFor="imageURL">Imagen</label>
                 <input
                 className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1"
+                required
                 type="url"
                 name="image"
                 value={imageURL}
@@ -61,6 +64,7 @@ export default function CardForm(props) {
                 />
                 <label className="text-white text-sm font-bold" htmlFor="videoURL">Video</label>
                 <input className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1"
+                required
                 type="url"
                 name="videoURL"
                 value={videoURL}
@@ -70,6 +74,7 @@ export default function CardForm(props) {
                 <textarea
                 className="my-1 text-white bg-transparent rounded-md ring-1 ring-blue-300 focus:outline-none px-2 py-1"
                 name="description"
+                placeholder="(Opcional)"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 />

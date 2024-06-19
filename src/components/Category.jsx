@@ -11,7 +11,7 @@ export default function Category(props) {
             <div className={'rounded-md p-2 w-5/6 md:w-1/2 lg:w-2/6 text-center flex justify-center md:mx-auto lg:ml-0 ' + backgroundClass}>
                 <h4 className='font-bold text-xl text-white'>{categoryTitle}</h4>
             </div>
-            <div className="grid md:flex items-center justify-between gap-2">
+            <div className="grid md:flex items-center gap-2">
                 { props.category.cards.map(card =>
                     <div key={card.title} className={"mt-4 rounded-2xl " + borderClass}>
                         <img src={card.imageURL} alt={card.description} className='w-80 h-52 object-cover b rounded-xl' />
@@ -20,7 +20,8 @@ export default function Category(props) {
                             <img src={pencilIcon} alt="pencil icon" className='w-4' />
                                 Editar
                             </button>
-                            <button type="button" className="opacity-5 hover:opacity-95 transition-opacity flex items-center gap-2 justify-center py-2 text-sm text-white w-1/2">
+                            
+                            <button type="button" className="opacity-5 hover:opacity-95 transition-opacity flex items-center gap-2 justify-center py-2 text-sm text-white w-1/2" onClick={() => props.selectCardForDeletion(card.title)}>
                                 <img src={trashIcon} alt="trash icon" className='w-4' />
                                 Borrar
                             </button>
