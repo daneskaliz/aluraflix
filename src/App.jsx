@@ -5,16 +5,9 @@ import Banner from './components/Banner.jsx';
 import Category from './components/Category.jsx';
 import Footer from './components/Footer.jsx';
 import CardForm from './components/CardForm.jsx';
+import * as placeHolders from '../db.json';
 
-import front_1 from './assets/front_1.png';
-import front_2 from './assets/front_2.png';
-import front_3 from './assets/front_3.png';
-import back_1 from './assets/back_1.png';
-import back_2 from './assets/back_2.png';
-import back_3 from './assets/back_3.png';
-import soft_1 from './assets/soft_1.png';
-import soft_2 from './assets/soft_2.png';
-import soft_3 from './assets/soft_3.png';
+console.log(placeHolders);
 
 function App() {
   const [formOpen, setFormOpen] = useState(false);
@@ -27,17 +20,7 @@ function App() {
     setselectedCardIndex(null);
     setFormOpen(false);
   };
-  const [cards, setCards] = useState([
-    { title: 'Variables en JS', imageURL: front_1, description: 'Video 1 serie Front End', videoURL: 'https://www.youtube.com/watch?v=PztCEdIJITY', category: 'Front End' },
-    { title: 'JavaScript', imageURL: front_2, description: 'Video 2 serie Front End', videoURL: 'https://www.youtube.com/watch?v=GJfOSoaXk4s', category: 'Front End' },
-    { title: 'Equipo Front End', imageURL: front_3, description: 'Video 3 serie Front End', videoURL: 'https://www.youtube.com/watch?v=rpvrLaBQwgg', category: 'Front End' },
-    { title: 'Spring Framework', imageURL: back_1, description: 'Video 1 serie Backend', videoURL: 'https://www.youtube.com/watch?v=t-iqt1b2qqk', category: 'Back End' },
-    { title: 'SQL vs NoSQL', imageURL: back_2, description: 'Video 2 serie Back End', videoURL: 'https://www.youtube.com/watch?v=cLLKVd5CNLc', category: 'Back End' },
-    { title: 'Java Enum', imageURL: back_3, description: 'Video 3 serie Backend', videoURL: 'https://www.youtube.com/watch?v=EoPvlE85XAQ', category: 'Back End' },
-    { title: 'Que son las Soft Skills', imageURL: soft_1, description: 'Video 1 serie Soft Skills', videoURL: 'https://www.youtube.com/watch?v=vhwspfvI52k', category: 'Innovación y Gestión' },
-    { title: '7 Soft Skills mas deseadas', imageURL: soft_2, description: 'Video 2 serie Soft Skills', videoURL: 'https://www.youtube.com/watch?v=YhR7Zp8NUzE', category: 'Innovación y Gestión' },
-    { title: 'Metodologías Ágiles', imageURL: soft_3, description: 'Video 1 serie Soft Skills', videoURL: 'https://www.youtube.com/watch?v=6N3OkLCfK-0', category: 'Innovación y Gestión' },
-  ]);
+  const [cards, setCards] = useState([]);
   
   const [categories, setCategories] = useState([
     { title: 'Front End', color: 'sky-300', cards: [] },
@@ -65,7 +48,6 @@ function App() {
   function createCard(cardData) {
     const currentCards = [...cards];
     currentCards.push(cardData);
-    console.log(cardData);
     setCards([...currentCards]);
     closeForm();
     alert("El video fue agregado.")
@@ -87,7 +69,15 @@ function App() {
     setCards(currentCards);
   }
 
-  useEffect(() => updateCategories(), [cards])
+  function getDataFromAPI() {
+    fetch("http://localhost:3000/data")
+      .then((res) => res.json())
+      .then((data) => setCards(data))
+      .catch((e) => (e.message == "Failed to fetch") ? setCards(placeHolders.data) : console.error(e))
+  }
+
+  useEffect(() => updateCategories(), [cards]);
+  useEffect(() => getDataFromAPI(), []);
 
   return (
     <>

@@ -1,0 +1,13 @@
+{
+    "data": [
+        { "title": "Variables en JS", "imageURL": "https://th.bing.com/th/id/OIP.4PNWx7inQZh9j-Ux9QSn3wHaDt?rs=1&pid=ImgDetMain", "description": "Video 1 serie Front End", "videoURL": "https://www.youtube.com/watch?v=PztCEdIJITY", "category": "Front End" },
+        { "title": "JavaScript", "imageURL": "https://assets-global.website-files.com/606a802fcaa89bc357508cad/61143444834cd54b9b0a88b3_2-p-2600.png", "description": "Video 2 serie Front End", "videoURL": "https://www.youtube.com/watch?v=GJfOSoaXk4s", "category": "Front End" },
+        { "title": "Equipo Front End", "imageURL": "https://th.bing.com/th/id/OIP.4yF2ZZXDAIPzR7_FCZ_9igHaFM?rs=1&pid=ImgDetMain", "description": "Video 3 serie Front End", "videoURL": "https://www.youtube.com/watch?v=rpvrLaBQwgg", "category": "Front End" },
+        { "title": "Spring Framework", "imageURL": "https://th.bing.com/th/id/OIP.hl5g9RwUtsy2Q8-CsZdYtwAAAA?rs=1&pid=ImgDetMain", "description": "Video 1 serie Backend", "videoURL": "https://www.youtube.com/watch?v=t-iqt1b2qqk", "category": "Back End" },
+        { "title": "SQL vs NoSQL", "imageURL": "https://th.bing.com/th/id/OIP.9AzzdQRiIOGaosvIUDiPiQHaEK?rs=1&pid=ImgDetMain", "description": "Video 2 serie Back End", "videoURL": "https://www.youtube.com/watch?v=cLLKVd5CNLc", "category": "Back End" },
+        { "title": "Java Enum", "imageURL": "https://th.bing.com/th/id/OIP.TrDsycoCjywPESgBFnnOEQAAAA?rs=1&pid=ImgDetMain", "description": "Video 3 serie Backend", "videoURL": "https://www.youtube.com/watch?v=EoPvlE85XAQ", "category": "Back End" },
+        { "title": "Que son las Soft Skills", "imageURL": "https://th.bing.com/th/id/R.fcea183f3fe93ef2831779da42126b21?rik=srjM8cJYlQdQgg&riu=http%3a%2f%2fcareerbright.com%2fwp-content%2fuploads%2f2020%2f05%2fsoft-skills-1024x682.jpg&ehk=ONy8lQs%2b%2bq4LH2KzNF2GJc2ZSp51sT4D686pAzOhCfg%3d&risl=&pid=ImgRaw&r=0", "description": "Video 1 serie Soft Skills", "videoURL": "https://www.youtube.com/watch?v=vhwspfvI52k", "category": "Innovación y Gestión" },
+        { "title": "7 Soft Skills mas deseadas", "imageURL": "https://th.bing.com/th/id/OIP.WacJ-UDgkXuA5MQPidNMeAAAAA?rs=1&pid=ImgDetMain", "description": "Video 2 serie Soft Skills", "videoURL": "https://www.youtube.com/watch?v=YhR7Zp8NUzE", "category": "Innovación y Gestión" },
+        { "title": "Metodologías Ágiles", "imageURL": "https://th.bing.com/th/id/OIP.4fcipEyecd0IW6FBY7xKAAHaEK?rs=1&pid=ImgDetMain", "description": "Video 1 serie Soft Skills", "videoURL": "https://www.youtube.com/watch?v=6N3OkLCfK-0", "category": "Innovación y Gestión" }
+    ]
+}

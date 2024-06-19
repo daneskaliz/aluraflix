@@ -14,7 +14,7 @@ export default function Category(props) {
             <div className="grid md:grid-cols-3 md:columns-3 items-center gap-2">
                 { props.category.cards.map(card =>
                     <div key={card.title} className={"mt-4 rounded-2xl " + borderClass}>
-                        <img src={card.imageURL} alt={card.description} className='w-full min-h-44 h-full object-fill rounded-xl' />
+                        <img src={card.imageURL} alt={card.description} className='w-full h-44 object-cover rounded-xl' />
                         <div className='flex items-center bg-stone-800 rounded-md'>
                             <button type="button" className="opacity-5 hover:opacity-95 transition-opacity flex items-center gap-2 justify-center py-2 text-sm text-white w-1/2" onClick={() => props.selectCardForEdition(card.title)}>
                             <img src={pencilIcon} alt="pencil icon" className='w-4' />
